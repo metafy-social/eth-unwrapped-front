@@ -58,13 +58,17 @@ const Unwrapped = () => {
       }else{
         res.data.first_transaction_2022 = new Date(res.data.first_transaction_2022).toDateString().split(' ').slice(1, 3).reverse().join(', ');
       }
-      setFirst_transaction_2022(res.data.first_transaction_2022);
-      setNft(res.data.nfts);
-      setToken(res.data.tokens);
-      setSwap(res.data.swaps);
-      setTx(res.data.transactions);
-      setJoined(res.data.oldest.time_ago);
-      setContracts(res.data.contracts);
+      try {
+        setFirst_transaction_2022(res.data.first_transaction_2022);
+        setNft(res.data.nfts);
+        setToken(res.data.tokens);
+        setSwap(res.data.swaps);
+        setTx(res.data.transactions);
+        setJoined(res.data.oldest.time_ago);
+        setContracts(res.data.contracts);
+      } catch (_) {
+        // console.log(error);
+      }
     }).catch(() => {
       alert(`Either your eth address ${id} has no transaction or it is not a valid address. Please try again.`);
       navigate('/');
