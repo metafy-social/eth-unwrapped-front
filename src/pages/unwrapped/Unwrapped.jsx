@@ -4,13 +4,40 @@ import { BackIcon, DownloadIcon, LinkedInLogo, TwitterLogo } from '../../assets'
 
 const Unwrapped = () => {
 
-  const joined = 'Joined 2022'
-  const firstTx = '21st Jan 2022'
-  const score = 0
-  const nft = 0
-  const token = 0
-  const swap = 0
-  const tx = 0
+  const data = {
+    _id: "0x1cE742C9714edF159a4eD7C988d28E35118000df",
+    nfts: 1,
+    tokens: 0,
+    contracts: 0,
+    oldest: {
+      block_timestamp: 1648711706000,
+      time_ago: "9 months ago"
+    },
+    first_transaction_2022: 1648711706000,
+    swaps: 0,
+    transactions: 26,
+    score: 64.0178865849085
+  };
+
+  const {
+    first_transaction_2022: firstTx,
+    score,
+    nfts: nft,
+    tokens: token,
+    swaps: swap,
+    transactions: tx,
+    oldest: { 
+      time_ago: joined 
+    }
+  } = data;
+
+  // const joined = 'Joined 2022'
+  // const firstTx = '21st Jan 2022'
+  // const score = 0
+  // const nft = 0
+  // const token = 0
+  // const swap = 0
+  // const tx = 0
 
   return (
     <div className='text-white flex flex-col justify-center items-center font-Inter'>
