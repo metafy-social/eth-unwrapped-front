@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { BackIcon, DownloadIcon, LinkedInLogo, TwitterLogo } from '../../assets'
 import ScoreComponent from './components/score';
 import html2canvas from 'html2canvas';
@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 const Unwrapped = () => {
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const componentRef = React.useRef();
 
@@ -63,8 +65,11 @@ const Unwrapped = () => {
       setTx(res.data.transactions);
       setJoined(res.data.oldest.time_ago);
       setContracts(res.data.contracts);
+    }).catch(() => {
+      alert(`Your eth address ${id} is not a valid address. Please try again.`);
+      navigate('/');
     })
-  }, [id])
+  }, [id, navigate])
 
   return (
     <div className='text-white flex flex-col justify-center items-center font-Inter'>

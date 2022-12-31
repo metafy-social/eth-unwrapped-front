@@ -19,6 +19,7 @@ const Home = () => {
 
 
             </div>
+            <div className='h-2'></div>
         </div>
     )
 }
