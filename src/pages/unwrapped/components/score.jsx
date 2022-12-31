@@ -21,7 +21,11 @@ const Score = React.forwardRef((props, ref) => {
             Joined ETH {joined}
             <br />
             <div className="h-2"></div>
-            1st Transaction of 2022 on {firstTx}
+            {firstTx==="Never Transacted"
+            ?
+            "Never Transacted"
+            :
+            "First Transaction of 2022 on " + firstTx}
         </dir>
         <div className="flex flex-col space-y-2">
             NFTs - {nft}
