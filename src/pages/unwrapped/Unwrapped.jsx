@@ -113,7 +113,7 @@ const Unwrapped = () => {
 
             <div className='flex flex-col ml-[5vw]'>
               <div className='text-lg'>
-                1. Download your video as an MP4 :
+                1. Download your Score Card :
               </div>
               <div>
                 <button className='bg-[#FFFF6D] flex justify-between text-black rounded-md px-5 py-3 mt-4' onClick={download}>
