@@ -7,15 +7,15 @@ const Unwrapped = () => {
 
   const data = {
     _id: "0x1cE742C9714edF159a4eD7C988d28E35118000df",
-    nfts: 1,
-    tokens: 0,
-    contracts: 0,
+    nfts: 6,
+    tokens: 2,
+    contracts: 1,
     oldest: {
       block_timestamp: 1648711706000,
       time_ago: "9 months ago"
     },
     first_transaction_2022: 1648711706000,
-    swaps: 0,
+    swaps: 15,
     transactions: 26,
     score: 64.0178865849085
   };
@@ -26,6 +26,7 @@ const Unwrapped = () => {
     nfts: nft,
     tokens: token,
     swaps: swap,
+    contracts,
     transactions: tx,
     oldest: { 
       time_ago: joined 
@@ -68,6 +69,7 @@ const Unwrapped = () => {
               swap={swap}
               tx={tx}
               joined={joined}
+              contracts={contracts}
             />
           </a>
 
