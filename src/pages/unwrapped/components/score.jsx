@@ -15,29 +15,34 @@ const Score = React.forwardRef((props, ref) => {
         joined 
     } = props;
     return (
-        <div ref={ref} className="bg-[#181818]">
+        <div ref={ref} className="bg-[#181818] p-5">
         <ReactSpeedometer minValue={0} maxValue={800} value={score} />
         <div className="flex flex-col space-y-2 mt-[-10vh]">
             NFTs - {nft}
+            <div className="h-[0.5px]"></div>
             <Progress 
                 status="success" 
                 percent={nft >= 10 ? 100 : nft*10}
             />
+            <div className="h-[0.5px]"></div>
             Transactions - {tx}
             <Progress 
                 percent={tx >= 100 ? 100 : tx} 
                 status="success" 
             />
+            <div className="h-[0.5px]"></div>
             ERC-20 Tokens - {token}
             <Progress 
                 percent={token >= 10 ? 100 : token*10} 
                 status="success" 
             />
+            <div className="h-[0.5px]"></div>
             Token Swaps - {swap}
             <Progress 
                 percent={swap >= 50 ? 100 : swap*5} 
                 status="success" 
             />
+            <div className="h-[0.5px]"></div>
             Contracts Deployed - {contracts}
             <Progress 
                 percent={contracts >= 8 ? 100 : contracts*12.5} 
