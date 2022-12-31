@@ -16,8 +16,14 @@ const Score = React.forwardRef((props, ref) => {
     } = props;
     return (
         <div ref={ref} className="bg-[#181818] p-5">
-        <ReactSpeedometer minValue={0} maxValue={800} value={score} />
-        <div className="flex flex-col space-y-2 mt-[-10vh]">
+        <ReactSpeedometer minValue={0} maxValue={800} value={score} currentValueText={`MetaScore ${score}`} />
+        <dir className="mt-[-10vh] ml-[-2vw] text-center font-extralight">
+            Joined ETH {joined}
+            <br />
+            <div className="h-2"></div>
+            1st Transaction of 2022 on {firstTx}
+        </dir>
+        <div className="flex flex-col space-y-2">
             NFTs - {nft}
             <div className="h-[0.5px]"></div>
             <Progress 
