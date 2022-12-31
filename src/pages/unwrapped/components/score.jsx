@@ -3,7 +3,7 @@ import ReactSpeedometer from "react-d3-speedometer";
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 
-const Score = (props) => {
+const Score = React.forwardRef((props, ref) => {
     const {
         firstTx,
         score,
@@ -15,7 +15,7 @@ const Score = (props) => {
         joined 
     } = props;
     return (
-        <>
+        <div ref={ref} className="bg-[#181818]">
         <ReactSpeedometer minValue={0} maxValue={800} value={score} />
         <div className="flex flex-col space-y-2 mt-[-10vh]">
             NFTs - {nft}
@@ -44,9 +44,9 @@ const Score = (props) => {
                 status="success" 
             />
         </div>
-        </>
+        </div>
         
     )
-}
+})
 
 export default Score

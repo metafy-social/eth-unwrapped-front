@@ -2,8 +2,23 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { BackIcon, DownloadIcon, LinkedInLogo, TwitterLogo } from '../../assets'
 import ScoreComponent from './components/score';
+import html2canvas from 'html2canvas';
 
 const Unwrapped = () => {
+
+  const componentRef = React.useRef();
+
+  const download = () => {
+    html2canvas(
+      componentRef.current,
+    ).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = 'image.png';
+      link.href= imgData;
+      link.click();
+    });
+  }
 
   const data = {
     _id: "0x1cE742C9714edF159a4eD7C988d28E35118000df",
@@ -36,14 +51,6 @@ const Unwrapped = () => {
   score = score.toFixed(2);
   firstTx = new Date(firstTx).toDateString().split(' ').slice(1, 3).reverse().join(', ');
 
-  // const joined = 'Joined 2022'
-  // const firstTx = '21st Jan 2022'
-  // const score = 0
-  // const nft = 0
-  // const token = 0
-  // const swap = 0
-  // const tx = 0
-
   return (
     <div className='text-white flex flex-col justify-center items-center font-Inter'>
 
@@ -70,6 +77,8 @@ const Unwrapped = () => {
               tx={tx}
               joined={joined}
               contracts={contracts}
+              ref={componentRef}
+              id="ethUnwrapped"
             />
           </a>
 
@@ -80,12 +89,12 @@ const Unwrapped = () => {
                 1. Download your video as an MP4 :
               </div>
               <div>
-                <button className='bg-[#FFFF6D] flex justify-between text-black rounded-md px-5 py-3 mt-4'>
+                <button className='bg-[#FFFF6D] flex justify-between text-black rounded-md px-5 py-3 mt-4' onClick={download}>
                   <div className='flex flex-col text-left'>
                     <div className='font-semibold'>
-                      Download The Video
+                      Download Your Image
                     </div>
-                    16.9MB
+                    PNG
                   </div>
 
                   <DownloadIcon className='w-6 h-6 ml-4' />
