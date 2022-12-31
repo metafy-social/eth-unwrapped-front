@@ -70,7 +70,7 @@ const Unwrapped = () => {
         // console.log(error);
       }
     }).catch(() => {
-      alert(`Either your eth address ${id} has no transaction or it is not a valid address. Please try again.`);
+      alert(`Your eth address ${id} is not a valid address. Please try again.`);
       navigate('/');
     })
   }, [id, navigate])
