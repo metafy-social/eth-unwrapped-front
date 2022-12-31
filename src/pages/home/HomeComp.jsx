@@ -4,12 +4,12 @@ import { MetafyLogo, SearchIcon } from '../../assets'
 const HomeComp = () => {
 
     const odata = [
-        'Type Of Transactions',
-        'Top Contracts Interacted with',
-        'First transaction & Token You Hold',
-        'Total NFT Collected',
-        'Total Number of transactions',
-        'Time Of Activeness'
+        'No. Of Transactions ?',
+        'Contracts Deployed ?',
+        'First transaction ?',
+        'Total NFTs Collected ?',
+        'ERC-20 Tokens Collected ?',
+        'How many times you swapped ?'
     ]
 
     return (
@@ -29,7 +29,7 @@ const HomeComp = () => {
 
                         <div className='flex flex-col items-center'>
                             <div className='text-4xl font-semibold'>
-                                Your 2022 ETH Web3 Journey Wrapped Up
+                                Your 2022 ETH Web3 Journey UnWrapped
                             </div>
                             <div className='text-4xl font-medium my-11'>
                                 Find Your
