@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { MetafyLogo, SearchIcon } from '../../assets'
 
 const HomeComp = () => {
@@ -11,6 +12,9 @@ const HomeComp = () => {
         'ERC-20 Tokens Collected ?',
         'How many times you swapped ?'
     ]
+
+    const nagivate = useNavigate();
+    const [address, setAddress] = React.useState('')
 
     return (
         <div className='text-white flex flex-col justify-center items-center font-Inter'>
@@ -59,13 +63,24 @@ const HomeComp = () => {
                                                 <SearchIcon className='w-[25px]' />
                                             </button>
                                         </span>
-                                        <input type="search" name="q" className="py-2  text-sm w-[20vw] h-[5vh] text-white bg-[#262626] placeholder:text-[#747474] rounded-lg pl-16 focus:outline-none focus:bg-white focus:text-black" placeholder="Address : 0x...0f00" autoComplete="off" />
+                                        <input type="search" name="q" className="py-2  text-sm w-[20vw] h-[5vh] text-white bg-[#262626] placeholder:text-[#747474] rounded-lg pl-16 focus:outline-none focus:bg-white focus:text-black" placeholder="Address : 0x...0f00" autoComplete="off" onChange={
+                                            (e) => {
+                                                setAddress(e.target.value)
+                                            }
+                                        } />
                                     </div>
                                 </form>
                             </div>
 
 
-                            <button className='border rounded-lg w-[170px] px-5 py-3 hover:bg-[#ffffff2a] mr-[7vw]'>
+                            <button className='border rounded-lg w-[170px] px-5 py-3 hover:bg-[#ffffff2a] mr-[7vw]' onClick={
+                                () => {
+                                    if (!address) {
+                                        return;
+                                    }
+                                    nagivate(`/unwrapped/${address}`)
+                                }
+                            }>
                                 Get Your Unwrapped
                             </button>
 
