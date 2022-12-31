@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { BackIcon, DownloadIcon, LinkedInLogo, TwitterLogo } from '../../assets'
+import ScoreComponent from './components/score';
 
 const Unwrapped = () => {
 
@@ -19,7 +20,7 @@ const Unwrapped = () => {
     score: 64.0178865849085
   };
 
-  const {
+  let {
     first_transaction_2022: firstTx,
     score,
     nfts: nft,
@@ -30,6 +31,9 @@ const Unwrapped = () => {
       time_ago: joined 
     }
   } = data;
+
+  score = score.toFixed(2);
+  firstTx = new Date(firstTx).toDateString().split(' ').slice(1, 3).reverse().join(', ');
 
   // const joined = 'Joined 2022'
   // const firstTx = '21st Jan 2022'
@@ -55,12 +59,17 @@ const Unwrapped = () => {
         <div className=" absolute -inset-0.5 bg-gradient-to-r  from-[#EB8145] to-[#1E99FE] rounded-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
         <div className="absolute -inset-0.5 bg-gradient-to-r  from-[#EA245A] to-[#6A38F5] rounded-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
         <div className="relative px-7 py-4 bg-[#181818] rounded-lg leading-none flex items-center">
-          <video
-            src={'https://cdn.dribbble.com/userupload/4163766/file/original-9098933b6d5ee937f7459a641aa62148.mp4'}
-            autoPlay="autoplay"
-            controls="controls"
-            className=" flex rounded-2xl h-[60vh] w-[20vw] "
-          />
+          <a>
+            <ScoreComponent 
+              firstTx={firstTx}
+              score={score}
+              nft={nft}
+              token={token}
+              swap={swap}
+              tx={tx}
+              joined={joined}
+            />
+          </a>
 
           <div className='flex flex-col space-y-7'>
 
@@ -91,7 +100,7 @@ const Unwrapped = () => {
             </div>
 
             <div className='ml-[5vw] text-base'>
-              <a href={`https://twitter.com/intent/tweet?hashtags=%20&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Ehashtag%7Ctwgr%5ELoveTwitter&related=MetafySocial&text=%F0%9F%9A%80%F0%9F%94%A5%20It%27s%20%23EthUnwrapped%202022%20and%20I%27m%20loving%20it%21%20%F0%9F%92%B0%20%40MetafySocial%20%0A%0AJoined%20Eth%20%2D%20${joined}%20ago%0AFirst%20transaction%20of%202022%20%2D%20${firstTx}%0AMetaScore%20%2D%20${score}%F0%9F%A4%91%20%0ANFTs%20%2D%20${nft}%0ANew%20ERC20%20Tokens%20%2D%20${token}%0AToken%20Swaps%20%2D%20${swap}%0ATotal%20transactions%20%2D%20${tx}%0A%0AGet%20yours%20ethunwrapped%2Exyz%20%F0%9F%94%A5`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://twitter.com/intent/tweet?hashtags=%20&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Ehashtag%7Ctwgr%5ELoveTwitter&related=MetafySocial&text=%F0%9F%9A%80%F0%9F%94%A5%20It%27s%20%23EthUnwrapped%202022%20and%20I%27m%20loving%20it%21%20%F0%9F%92%B0%20%40MetafySocial%20%0A%0AJoined%20Eth%20%2D%20${joined}%0AFirst%20transaction%20of%202022%20%2D%20${firstTx}%0AMetaScore%20%2D%20${score}%F0%9F%A4%91%20%0ANFTs%20%2D%20${nft}%0ANew%20ERC20%20Tokens%20%2D%20${token}%0AToken%20Swaps%20%2D%20${swap}%0ATotal%20transactions%20%2D%20${tx}%0A%0AGet%20yours%20ethunwrapped%2Exyz%20%F0%9F%94%A5`} target="_blank" rel="noopener noreferrer">
                 <button className='flex items-center bg-[#1DA1F2] px-4 py-2 rounded-lg'>
                   <TwitterLogo className='w-[30px] mr-5' />
                   Share on Twitter
