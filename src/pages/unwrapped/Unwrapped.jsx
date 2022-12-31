@@ -143,10 +143,12 @@ const Unwrapped = () => {
             </div>
 
             <div className='ml-[5vw] text-base'>
+            <a href={`https://www.linkedin.com/company/metafy01`} target="_blank" rel="noopener noreferrer">
               <button className='flex items-center bg-[#0A66C2] px-4 py-2 rounded-lg'>
                 <LinkedInLogo className='w-[30px] mr-5' />
                 Share on LinkedIn
               </button>
+            </a>
             </div>
 
             <Link to='/'>
