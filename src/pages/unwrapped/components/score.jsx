@@ -49,7 +49,7 @@ const Score = React.forwardRef((props, ref) => {
             <div className="h-[0.5px]"></div>
             Token Swaps - {swap}
             <Progress 
-                percent={swap >= 50 ? 100 : swap*5} 
+                percent={swap >= 50 ? 100 : swap*2} 
                 status="success" 
             />
             <div className="h-[0.5px]"></div>
